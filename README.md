@@ -1,5 +1,7 @@
-# LocalAudioServer
-**Web UI for remote volume contol.**
+<div align="center"><h1>LocalAudioServer</h1>
+<b>Web UI for remote volume contol.</b>
+</div>
+<br>
 
 LocalAudioServer представляет собой **web-интрерфейс для удаленного контроля уровня громкости** устройства из **домашней сети**.<br>
 Сервер использует диапазон адресов **192.168.x.x** (если вы используете другой диапазон, поменяйте соответсвующую строчку в коде).<br>
