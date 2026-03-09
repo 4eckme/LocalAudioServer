@@ -1,5 +1,5 @@
 <div align="center"><h1>LocalAudioServer</h1>
-<b>Web UI for remote volume contol.</b>
+<b>Web UI for remote volume contol</b>
 </div>
 <br>
 
