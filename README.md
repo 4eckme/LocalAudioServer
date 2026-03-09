@@ -9,6 +9,12 @@ LocalAudioServer представляет собой **web-интрерфейс 
 # Установка
 <pre>pip install -r requirements.txt</pre>
 
+# Запуск
+```start.bat``` для запуска сервера в консоли<br>
+```start.vbs``` для запуска в фоновом режиме
+
+Для автозапуска добавьте ярлык на любой из этих файлов в папку автозагрузки приложений
+
 # Требования
 - Windows (7, 8, 10, 11, Server editions)
 - Visual C++ Build Tools
