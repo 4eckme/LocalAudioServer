@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	
+	<link rel="icon" type="image/png" sizes="128x128" href="/icon.png">
+	<link rel="apple-touch-icon" href="/icon.png">
+	<!-- link rel="manifest" href="/manifest.json" -->
+	
+    <title>Пульт</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+			height: 100vh;
+            min-height: 100vh;
+            justify-content: center;
+            background: #eee;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .slider-container {
+            width: 80%;
+            max-width: 600px;
+            padding: 30px 20px;
+            background: #fff;
+            backdrop-filter: blur(8px);
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+			margin-bottom: 30vh;
+        }
+
+        .slider-value {
+            font-size: 6rem;
+            font-weight: bold;
+            display: inline-block;
+            border-radius: 50px;
+            letter-spacing: 2px;
+        }
+		
+		.range-wrapper {
+            position: relative;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-track {
+            position: absolute;
+            width: 100%;
+            height: 16px;
+            background: linear-gradient(90deg, #ff6600 0%, #ff0066 var(--fill), #aaffdd var(--fill), #aaddff 100%);
+            border-radius: 20px;
+            pointer-events: none; /* Чтобы ползунок можно было двигать сквозь трек */
+            transition: background 0.1s ease;
+        }	
+
+        input[type=range] {
+            -webkit-appearance: none;
+            position: relative;
+            width: 100%;
+            height: 16px;
+            background: transparent; /* Прозрачный фон, чтобы был виден кастомный трек */
+            border-radius: 20px;
+            outline: none;
+            z-index: 2;
+			outline: none;
+			-webkit-tap-highlight-color: transparent;
+        }
+		
+		input[type=range]:focus {
+            outline: none;
+		}
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            cursor: pointer;
+            border: 3px solid #333;
+            transition: transform 0.1s ease;
+			z-index: 3;
+			-webkit-tap-highlight-color: transparent;
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background: #f0f0f0;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            cursor: pointer;
+            border: 3px solid #333;
+            transition: transform 0.1s ease;
+			outline: none;
+        }
+
+        input[type=range]::-moz-range-thumb:hover {
+            transform: scale(1.15);
+            background: #f0f0f0;
+        }
+
+        input[type=range]::-ms-thumb {
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            cursor: pointer;
+            border: 3px solid #333;
+			outline: none;
+        }
+
+        input[type=range]::-ms-track {
+            width: 100%;
+            height: 10px;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        input[type=range]::-ms-fill-lower {
+            background: #6a11cb;
+            border-radius: 10px;
+        }
+
+        input[type=range]::-ms-fill-upper {
+            background: #ddd;
+            border-radius: 10px;
+        }
+		
+		input[type=range]::-moz-focus-inner,
+        input[type=range]::-moz-focus-outer {
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+		
+		input[type=range],
+        input[type=range]::-webkit-slider-thumb,
+        input[type=range]::-moz-range-thumb,
+        input[type=range]::-ms-thumb {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+	<div style="position: absolute;width: 100%;text-align: center;margin-top: 20vh;"></span>
+		<div class="slider-value" id="sliderValue">50</div>
+		<div>Уровень громкости</div>
+	</div>
+	<div style="display:flex;align-items:flex-end;height:100vh;width:100%;justify-content:center;">
+		<div class="slider-container">
+			<div class="range-wrapper">
+				<div class="custom-track" id="customTrack"></div>
+				<input type="range" min="0" max="100" value="50" id="slider" aria-label="Ползунок от 0 до 100">
+			</div>
+		</div>
+	</div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const valueDisplay = document.getElementById('sliderValue');
+		
+		function fetch_data(volume) {
+			if (arguments.length === 0)
+				url = window.location.href+'?get';
+			else if (arguments.length === 1) {
+				intval = parseInt(volume);
+				customTrack.style.setProperty('--fill', intval+'%');
+				url = window.location.href+'?set='+intval;
+			}
+				
+			fetch(url)
+			  .then(response => {
+				if (!response.ok) {
+				  throw new Error('Network response was not ok');
+				}
+				return response.json();
+			  })
+			  .then(data => {
+				if (arguments.length === 0)
+					slider.value = data.volume;
+					intval = parseInt(slider.value);
+					customTrack.style.setProperty('--fill', intval+'%');
+				valueDisplay.innerHTML = data.volume
+			  })
+			  .catch(error => {
+				console.error('Error:', error);
+			  });
+		}
+		
+		slider.addEventListener('input', function() {
+			fetch_data(this.value);
+		});
+		
+		fetch_data();
+    </script>
+</body>
+</html>
