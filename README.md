@@ -6,16 +6,21 @@ LocalAudioServer представляет собой **web-интрерфейс 
 Если хост не доступен из домашней сети, убедитесь что Python добавлен в исключения брандмауэра.<br>
 Для контроля уровня громкости используется библиотека <a href="https://github.com/AndreMiras/pycaw">pycaw</a> для **Windows**.
 
-# Установка
+# Install
 <pre>pip install -r requirements.txt</pre>
 
-# Запуск
+# Start
 ```start.bat``` для запуска сервера в консоли<br>
 ```start.vbs``` для запуска в фоновом режиме
 
 Для автозапуска добавьте ярлык на любой из этих файлов в папку автозагрузки приложений.
 
-# Требования
+# Requirements
 - Windows (7, 8, 10, 11, Server editions)
 - Visual C++ Build Tools
 - Python 3.12.10 или выше
+
+# Preview
+<div align="left">
+  <img src="https://raw.githubusercontent.com/4eckme/LocalAudioServer/refs/heads/main/screenshot1.png" height="256" />&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/4eckme/LocalAudioServer/refs/heads/main/screenshot2.png" height="256" /> 
+</div>
