@@ -24,5 +24,5 @@ LocalAudioServer представляет собой **web-интрерфейс 
 
 # Preview
 <div align="left">
-  <img src="https://raw.githubusercontent.com/4eckme/LocalAudioServer/refs/heads/main/screenshot1.png" height="256" />&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/4eckme/LocalAudioServer/refs/heads/main/screenshot2.png" height="256" /> 
+  <img src="https://raw.githubusercontent.com/4eckme/LocalAudioServer/refs/heads/main/screenshots/web-ui.png" height="256" />&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/4eckme/LocalAudioServer/refs/heads/main/screenshots/console.png" height="256" /> 
 </div>
