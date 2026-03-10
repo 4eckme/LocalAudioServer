@@ -20,7 +20,7 @@ LocalAudioServer представляет собой **web-интрерфейс 
 # Requirements
 - Windows (7, 8, 10, 11, Server editions)
 - Visual C++ Build Tools
-- Python 3.12.10 или выше
+- Python 3.8 и выше
 
 # Preview
 <div align="left">
