@@ -197,15 +197,16 @@
 				if (!response.ok) {
 				  throw new Error('Network response was not ok');
 				}
-				return response.json();
+				return response.text();
 			  })
 			  .then(data => {
+			    console.log(data);
+			    intval = parseInt(data);
 				if (arguments.length === 0) {
-					slider.value = data.volume;
-					intval = parseInt(slider.value);
+					slider.value = intval;
 					customTrack.style.setProperty('--fill', intval+'%');
 				}
-				valueDisplay.innerHTML = data.volume
+				valueDisplay.innerHTML = intval;
 			  })
 			  .catch(error => {
 				console.error('Error:', error);
