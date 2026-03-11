@@ -7,12 +7,6 @@ volume = device.EndpointVolume
 
 def clamp(value, minimum, maximum):
     return min(max(value, minimum), maximum)
-    
-def intval(value):
-  try:
-      return int(value)
-  except:
-      return 0
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -29,8 +23,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(str(round(volume.GetMasterVolumeLevelScalar()*100)).encode('utf-8'))
         elif self.path.startswith('/?set='):
             split = self.path.split("=")
-            if len(split) == 2 and split[1].isdecimal():
-                value = clamp(intval(split[1])/100,0,1)
+            if len(split) == 2 and all('0' <= char <= '9' for char in split[1]):
+                value = clamp(int(split[1])/100,0,1)
                 volume.SetMasterVolumeLevelScalar(value, None)
                 self.send_response(200)
                 self.send_header('Content-type', 'text/plain')
