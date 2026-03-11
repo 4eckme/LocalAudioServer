@@ -1,1 +1,1 @@
-CreateObject("Wscript.Shell").Run "python server.py", 0, False
+CreateObject("Wscript.Shell").Run "python3 server.py", 0, False
