@@ -2,8 +2,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import socket
 
 from pycaw.pycaw import AudioUtilities
-device = AudioUtilities.GetSpeakers()
-volume = device.EndpointVolume
+volume = AudioUtilities.GetSpeakers().EndpointVolume
 
 def clamp(value, minimum, maximum):
     return min(max(value, minimum), maximum)
@@ -57,3 +56,4 @@ def run_server(port=8088):
 
 if __name__ == '__main__':
     run_server()
+
