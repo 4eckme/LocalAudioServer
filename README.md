@@ -35,7 +35,7 @@ LocalAudioServer представляет собой **web-интрерфейс 
 
 or
 - Linux
-- 
+
 # Preview
 <div align="left">
   <img src="https://raw.githubusercontent.com/4eckme/LocalAudioServer/refs/heads/main/screenshots/web-ui.png" height="256" />&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/4eckme/LocalAudioServer/refs/heads/main/screenshots/console.png" height="256" /> 
