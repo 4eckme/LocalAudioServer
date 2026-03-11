@@ -18,12 +18,12 @@ LocalAudioServer представляет собой **web-интрерфейс 
 
 ### Linux:
 
-```python3 server py``` для запуска сервера в консоли<br>
-```nohup python server.py > /dev/null 2>&1 &``` для запуска в фоновом режиме
+```python3 server.py``` для запуска сервера в консоли<br>
+```nohup python3 server.py > /dev/null 2>&1 &``` для запуска в фоновом режиме
 
 Для автозапуска добавьте в Startup Applications одну из этих команд:<br>
-```cd /path/to/LocalAudioServer && python3 server py```<br>
-```cd /path/to/LocalAudioServer && nohup python server.py > /dev/null 2>&1 &```
+```cd /path/to/LocalAudioServer && python3 server.py```<br>
+```cd /path/to/LocalAudioServer && nohup python3 server.py > /dev/null 2>&1 &```
 
 # Requirements
 <table>
