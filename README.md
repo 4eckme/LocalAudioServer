@@ -26,12 +26,24 @@ LocalAudioServer представляет собой **web-интрерфейс 
 ```cd /path/to/LocalAudioServer && nohup python server.py > /dev/null 2>&1 &```
 
 # Requirements
-- Windows (7, 8, 10, 11, Server editions)
-- Visual C++ Build Tools
-- Python 3.8 и выше<br>
-
-or
-- Linux
+<table>
+  <tr>
+    <th>Windows</th>
+    <th>Linux</th>
+  </tr>
+  <tr>
+    <td>7, 8, 10, 11, Server editions.</td>
+    <td>Большинство дистрибутивов.</td>
+  </tr>
+    <tr>
+    <td>Visual C++ Build Tools</td>
+    <td>Утилиты amixer и hostname (предустановленны)</td>
+  </tr>
+  <tr>
+    <td>Python 3.8+</td>
+    <td>Python 3.8+</td>
+  </tr>
+</table>
 
 # Preview
 <div align="left">
