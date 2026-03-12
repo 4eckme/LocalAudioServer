@@ -46,6 +46,10 @@ class AudioController:
 AC = AudioController()
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+    
+    def log_message(self, format, *args):
+        pass
+    
     def do_GET(self):
         if self.path == '/':
             self.send_response(200)
@@ -101,3 +105,4 @@ def run_server(port=8088):
 
 if __name__ == '__main__':
     run_server()
+
